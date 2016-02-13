@@ -29,7 +29,7 @@ module.exports = React.createClass({
 
     componentWillMount: function() {
         styles.use(); // Load styles
-        document.title = "TalkLife Campus";
+        document.title = "TalkCampus";
     },
     componentDidMount: function() {
 
@@ -65,12 +65,35 @@ module.exports = React.createClass({
                 this.setState({success:true});
             }.bind(this),
             fail: function(error){
-                this.setState({disabled:false,error:error});
+                this.setState({disabled:false,error:error.error});
             }.bind(this)
         })
     },
 
     render: function() {
+        var form = (
+            <div>
+                <h3>Let us know<br />you're interested</h3>
+                {this.state.error ? (<div className="error">{this.state.error}</div>) : null}
+                <form onSubmit={this.submit}>
+                    <input type="text" placeholder="Campus Name" value={this.state.campusName} onChange={this.onChange.bind(null,"campusName")} />
+                    <input type="text" placeholder="Country" value={this.state.country} onChange={this.onChange.bind(null,"country")} />
+                    <input type="text" placeholder="Number of Students" value={this.state.students} onChange={this.onChange.bind(null,"students")} />
+                    <input type="text" placeholder="University Website URL" value={this.state.website} onChange={this.onChange.bind(null,"website")} />
+                    <input type="text" placeholder="Your Name" value={this.state.yourName} onChange={this.onChange.bind(null,"yourName")} />
+                    <input type="text" placeholder="Your Position" value={this.state.yourPosition} onChange={this.onChange.bind(null,"yourPosition")} />
+                    <textarea placeholder="Why would your university TalkCampus?" value={this.state.why} onChange={this.onChange.bind(null,"why")} />
+                    <input type="submit" className="gradient" />
+                </form>
+            </div>
+        )
+
+        if(this.state.success){
+            form = (
+                <h3 className="success">Thanks for registering your interest, we'll be in touch</h3>
+            )
+        }
+
         return (
             <div className="Home">
                 <div className="main" style={{"backgroundImage":"url(res/backgrounds/cover.jpg)"}}>
@@ -83,17 +106,7 @@ module.exports = React.createClass({
                     <div className="content">
                         <h2>Campus is Coming</h2>
                         <p>Built for students. Chat with peers in a safe encouraging environment. Access all of your campus student mental health services in one place.</p>
-                        <h3>Let us know<br />you're interested</h3>
-                        <form onSubmit={this.submit}>
-                            <input type="text" placeholder="Campus Name" value={this.state.campusName} onChange={this.onChange.bind(null,"campusName")} />
-                            <input type="text" placeholder="Country" value={this.state.country} onChange={this.onChange.bind(null,"country")} />
-                            <input type="text" placeholder="Number of Students" value={this.state.students} onChange={this.onChange.bind(null,"students")} />
-                            <input type="text" placeholder="University Website URL" value={this.state.website} onChange={this.onChange.bind(null,"website")} />
-                            <input type="text" placeholder="Your Name" value={this.state.yourName} onChange={this.onChange.bind(null,"yourName")} />
-                            <input type="text" placeholder="Your Position" value={this.state.yourPosition} onChange={this.onChange.bind(null,"yourPosition")} />
-                            <textarea placeholder="Why would your university TalkCampus?" value={this.state.why} onChange={this.onChange.bind(null,"why")} />
-                            <input type="submit" className="gradient" />
-                        </form>
+                        {form}
                     </div>
                 </div>
             </div>

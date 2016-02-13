@@ -45,6 +45,9 @@
     h3 {
       font-size: 1.4em;
       margin-top: 2em;
+      &.success {
+        font-size: 1.1em;
+      }
     }
     form {
       max-width: 300px;
@@ -64,6 +67,11 @@
       width: 100%;
       font-weight: 300;
       padding: 0.4em 0.5em;
+    }
+    .error {
+      padding-bottom: 1em;
+      color: $red;
+      font-weight: 300;
     }
   }
 }
