@@ -4,10 +4,21 @@ var styles = require('./style.scss');
 // Load modules
 var Reflux = require('reflux');
 
+var Api = require('../../functions/Api')
+
 module.exports = React.createClass({
     getInitialState: function(){
         return {
-
+            campusName: "",
+            country: "",
+            students: "",
+            website: "",
+            yourName: "",
+            yourPosition: "",
+            why: "",
+            disabled: false,
+            error: null,
+            success: false
         };
     },
     getDefaultProps: function(){
@@ -27,6 +38,38 @@ module.exports = React.createClass({
         styles.unuse(); // Remove styles
     },
 
+    onChange: function(input,event){
+        // Reset form error
+        var state = {error:null};
+        // Set state value to input value
+        state[input] = event.target.value;
+        this.setState(state);
+    },
+
+    submit: function(event){
+        event.preventDefault();
+
+        Api("POST","https://plexus.talklife.co/api/campusInterest",{
+            campusName: this.state.campusName,
+            country: this.state.country,
+            students: this.state.students,
+            website: this.state.website,
+            yourName: this.state.yourName,
+            yourPosition: this.state.yourPosition,
+            why: this.state.why
+        },{
+            pre: function(){
+                this.setState({disabled:true});
+            }.bind(this),
+            success: function(data){
+                this.setState({success:true});
+            }.bind(this),
+            fail: function(error){
+                this.setState({disabled:false,error:error});
+            }.bind(this)
+        })
+    },
+
     render: function() {
         return (
             <div className="Home">
@@ -41,14 +84,14 @@ module.exports = React.createClass({
                         <h2>Campus is Coming</h2>
                         <p>Built for students. Chat with peers in a safe encouraging environment. Access all of your campus student mental health services in one place.</p>
                         <h3>Let us know<br />you're interested</h3>
-                        <form>
-                            <input type="text" placeholder="Campus Name" />
-                            <input type="text" placeholder="Country" />
-                            <input type="text" placeholder="Number of Students" />
-                            <input type="text" placeholder="University Website URL" />
-                            <input type="text" placeholder="Your Name" />
-                            <input type="text" placeholder="Your Position" />
-                            <textarea placeholder="Why would your university TalkCampus?" />
+                        <form onSubmit={this.submit}>
+                            <input type="text" placeholder="Campus Name" value={this.state.campusName} onChange={this.onChange.bind(null,"campusName")} />
+                            <input type="text" placeholder="Country" value={this.state.country} onChange={this.onChange.bind(null,"country")} />
+                            <input type="text" placeholder="Number of Students" value={this.state.students} onChange={this.onChange.bind(null,"students")} />
+                            <input type="text" placeholder="University Website URL" value={this.state.website} onChange={this.onChange.bind(null,"website")} />
+                            <input type="text" placeholder="Your Name" value={this.state.yourName} onChange={this.onChange.bind(null,"yourName")} />
+                            <input type="text" placeholder="Your Position" value={this.state.yourPosition} onChange={this.onChange.bind(null,"yourPosition")} />
+                            <textarea placeholder="Why would your university TalkCampus?" value={this.state.why} onChange={this.onChange.bind(null,"why")} />
                             <input type="submit" className="gradient" />
                         </form>
                     </div>

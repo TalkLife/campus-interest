@@ -8,7 +8,7 @@ module.exports = function(type,url,data,callbacks){
 
     if(!type){failcallback({error:"Invalid request type",code:400}); return false;}
     if(!url || url==""){failcallback({error:"Invalid url",code:400}); return false;}
-    url = "/api" + url;
+    url = url;
     data = data || {};
 
     var expectedresponse = 200;

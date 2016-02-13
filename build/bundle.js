@@ -326,6 +326,58 @@ webpackJsonp([1],{
 
 /***/ },
 
+/***/ 161:
+/***/ function(module, exports) {
+
+	"use strict";
+
+	module.exports = function (type, url, data, callbacks) {
+	    callbacks = callbacks || {};
+	    var precallback = callbacks.pre || function () {},
+	        successcallback = callbacks.success || function () {},
+	        failcallback = callbacks.fail || function () {};
+
+	    precallback();
+
+	    if (!type) {
+	        failcallback({ error: "Invalid request type", code: 400 });return false;
+	    }
+	    if (!url || url == "") {
+	        failcallback({ error: "Invalid url", code: 400 });return false;
+	    }
+	    url = url;
+	    data = data || {};
+
+	    var expectedresponse = 200;
+	    if (type == "POST") {
+	        expectedresponse = 201;
+	    } else if (type == "DELETE") {
+	        expectedresponse = 204;
+	    }
+
+	    var http = new XMLHttpRequest();
+	    http.open(type, url, true);
+	    http.setRequestHeader("Content-type", "application/json");
+	    http.onreadystatechange = function () {
+	        if (http.readyState == 4) {
+	            var response = null;
+	            if (http.responseText.length > 0) response = JSON.parse(http.responseText);
+
+	            if (http.status == expectedresponse && response) {
+	                successcallback(response);
+	            } else if (http.status == expectedresponse && !response) {
+	                successcallback();
+	            } else {
+	                failcallback(response);
+	            }
+	        }
+	    };
+	    if (data) http.send(JSON.stringify(data));else http.send();
+	    return true;
+	};
+
+/***/ },
+
 /***/ 163:
 /***/ function(module, exports, __webpack_require__) {
 
@@ -1232,11 +1284,24 @@ webpackJsonp([1],{
 	// Load modules
 	var Reflux = __webpack_require__(158);
 
+	var Api = __webpack_require__(161);
+
 	module.exports = React.createClass({
 	    displayName: 'exports',
 
 	    getInitialState: function getInitialState() {
-	        return {};
+	        return {
+	            campusName: "",
+	            country: "",
+	            students: "",
+	            website: "",
+	            yourName: "",
+	            yourPosition: "",
+	            why: "",
+	            disabled: false,
+	            error: null,
+	            success: false
+	        };
 	    },
 	    getDefaultProps: function getDefaultProps() {
 	        return {};
@@ -1249,6 +1314,38 @@ webpackJsonp([1],{
 	    componentDidMount: function componentDidMount() {},
 	    componentWillUnmount: function componentWillUnmount() {
 	        styles.unuse(); // Remove styles
+	    },
+
+	    onChange: function onChange(input, event) {
+	        // Reset form error
+	        var state = { error: null };
+	        // Set state value to input value
+	        state[input] = event.target.value;
+	        this.setState(state);
+	    },
+
+	    submit: function submit(event) {
+	        event.preventDefault();
+
+	        Api("POST", "https://plexus.talklife.co/api/campusInterest", {
+	            campusName: this.state.campusName,
+	            country: this.state.country,
+	            students: this.state.students,
+	            website: this.state.website,
+	            yourName: this.state.yourName,
+	            yourPosition: this.state.yourPosition,
+	            why: this.state.why
+	        }, {
+	            pre: (function () {
+	                this.setState({ disabled: true });
+	            }).bind(this),
+	            success: (function (data) {
+	                this.setState({ success: true });
+	            }).bind(this),
+	            fail: (function (error) {
+	                this.setState({ disabled: false, error: error });
+	            }).bind(this)
+	        });
 	    },
 
 	    render: function render() {
@@ -1294,14 +1391,14 @@ webpackJsonp([1],{
 	                    ),
 	                    React.createElement(
 	                        'form',
-	                        null,
-	                        React.createElement('input', { type: 'text', placeholder: 'Campus Name' }),
-	                        React.createElement('input', { type: 'text', placeholder: 'Country' }),
-	                        React.createElement('input', { type: 'text', placeholder: 'Number of Students' }),
-	                        React.createElement('input', { type: 'text', placeholder: 'University Website URL' }),
-	                        React.createElement('input', { type: 'text', placeholder: 'Your Name' }),
-	                        React.createElement('input', { type: 'text', placeholder: 'Your Position' }),
-	                        React.createElement('textarea', { placeholder: 'Why would your university TalkCampus?' }),
+	                        { onSubmit: this.submit },
+	                        React.createElement('input', { type: 'text', placeholder: 'Campus Name', value: this.state.campusName, onChange: this.onChange.bind(null, "campusName") }),
+	                        React.createElement('input', { type: 'text', placeholder: 'Country', value: this.state.country, onChange: this.onChange.bind(null, "country") }),
+	                        React.createElement('input', { type: 'text', placeholder: 'Number of Students', value: this.state.students, onChange: this.onChange.bind(null, "students") }),
+	                        React.createElement('input', { type: 'text', placeholder: 'University Website URL', value: this.state.website, onChange: this.onChange.bind(null, "website") }),
+	                        React.createElement('input', { type: 'text', placeholder: 'Your Name', value: this.state.yourName, onChange: this.onChange.bind(null, "yourName") }),
+	                        React.createElement('input', { type: 'text', placeholder: 'Your Position', value: this.state.yourPosition, onChange: this.onChange.bind(null, "yourPosition") }),
+	                        React.createElement('textarea', { placeholder: 'Why would your university TalkCampus?', value: this.state.why, onChange: this.onChange.bind(null, "why") }),
 	                        React.createElement('input', { type: 'submit', className: 'gradient' })
 	                    )
 	                )
