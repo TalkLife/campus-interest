@@ -1,0 +1,69 @@
+@import "../../styles/vars";
+
+.Home {
+
+}
+
+.main {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-position: center center;
+  .content {
+    width: 95%;
+    max-width: 250px;
+    text-align: center;
+    img {
+      width: 65%;
+    }
+    h1 {
+      font-size: 1.9em;
+      margin-top: 0.2em;
+      font-weight: 800
+    }
+  }
+}
+
+.lower {
+  .content {
+    width: 90%;
+    max-width: 400px;
+    margin: 2em auto;
+    text-align: center;
+    h2 {
+      font-size: 2em;
+      font-weight: 500;
+      margin-bottom: 0;
+    }
+    p {
+      font-size: 1.2em;
+      margin-top: 0.5em;
+    }
+    h3 {
+      font-size: 1.4em;
+      margin-top: 2em;
+    }
+    form {
+      max-width: 300px;
+      margin: 0 auto;
+    }
+    input[type="text"],textarea {
+      width: 100%;
+      margin-bottom: 0.8em;
+      background: transparent;
+      color: $white;
+    }
+    textarea {
+      min-height: 5em;
+    }
+    [type="submit"]{
+      font-size: 1.2em;
+      width: 100%;
+      font-weight: 300;
+      padding: 0.4em 0.5em;
+    }
+  }
+}

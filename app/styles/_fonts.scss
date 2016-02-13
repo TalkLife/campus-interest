@@ -1,0 +1,8 @@
+body {
+  font-family: Lato;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 1.1em;
+  @media (max-width: 800px){font-size: 1em;}
+  //@media (max-width: 400px){font-size: 1em;}
+}

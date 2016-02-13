@@ -1,0 +1,131 @@
+button,.button,[type="submit"] {
+  background: white;
+  outline: none;
+  border: none;
+  background: $purple;
+  color: white;
+  padding: 0.4em 0.3em 0.3em 0.3em;
+  transition: background .1s ease;
+
+  &.fill {
+    width: 100%;
+  }
+
+  &.upper {
+    font-family: Montserrat !important;
+    text-transform: uppercase;
+  }
+
+  &:hover,&:disabled {background: lighten($purple,10%);}
+  &:disabled {cursor: default;}
+  &:active {background: lighten($purple,15%);}
+
+  &.black {
+    background: $black;
+    color: $green;
+    &:hover,&:disabled {background: lighten($black,10%);}
+    &:active {background: lighten($black,15%);}
+  }
+  &.purple {
+    background: $purple;
+    &:hover,&:disabled {background: lighten($purple,10%);}
+    &:active {background: lighten($purple,15%);}
+  }
+  &.pink {
+    background: $pink;
+    &:hover,&:disabled {background: lighten($pink,10%);}
+    &:active {background: lighten($pink,15%);}
+  }
+  &.green {
+    background: $green;
+    &:hover,&:disabled {background: lighten($green,10%);}
+    &:active {background: lighten($green,8%);}
+  }
+  &.blue {
+    background: $blue;
+    &:hover,&:disabled {background: lighten($blue,10%);}
+    &:active {background: lighten($blue,8%);}
+  }
+  &.red {
+    background: $red;
+    &:hover,&:disabled {background: lighten($red,10%);}
+    &:active {background: lighten($red,8%);}
+  }
+  &.orange {
+    background: $orange;
+    &:hover,&:disabled {background: lighten($orange,20%);}
+    &:active {background: lighten($orange,8%);}
+  }
+  &.gradient {
+    background: linear-gradient(left, rgb(80,103,255), rgb(164,43,255));
+    opacity: 0.9;
+    transition: opacity .1s linear;
+    &:hover,&:disabled {opacity: 0.8;}
+    &:active {opacity: 0.7;}
+  }
+
+  &.rounded {
+    border-radius: 2em;
+    padding: 0.4em 0.6em 0.3em 0.6em;
+  }
+
+  &.border {
+    background: transparent;
+    border: 1px solid $purple;
+    color: $purple;
+    &:hover,&:disabled {background: transparent; border-color: lighten($purple,10%); color: lighten($purple,10%);}
+    &:active {background: transparent; border-color: lighten($purple,15%); color: lighten($purple,15%);}
+    &.white {
+      border-color: $white;
+      color: $white;
+      &:hover,&:disabled {background: rgba(255,255,255,0.3);}
+      &:active {background: rgba(255,255,255,0.5);}
+    }
+    &.black {
+      border-color: $black;
+      color: $black;
+      &:hover,&:disabled {border-color: lighten($black,20%); color: lighten($black,20%);}
+      &:active {border-color: lighten($black,15%); color: lighten($black,15%);}
+    }
+    &.purple {
+      border-color: $purple;
+      color: $purple;
+      &:hover,&:disabled {border-color: lighten($purple,10%); color: lighten($purple,10%);}
+      &:active {border-color: lighten($purple,15%); color: lighten($purple,15%);}
+    }
+    &.pink {
+      border-color: $pink;
+      color: $pink;
+      &:hover,&:disabled {border-color: lighten($pink,10%); color: lighten($pink,10%);}
+      &:active {border-color: lighten($pink,15%); color: lighten($pink,15%);}
+    }
+    &.green {
+      border-color: $green;
+      color: $green;
+      &:hover,&:disabled {border-color: lighten($green,3%); color: lighten($green,3%);}
+      &:active {border-color: lighten($green,5%); color: lighten($green,5%);}
+    }
+    &.blue {
+      border-color: $blue;
+      color: $blue;
+      &:hover,&:disabled {border-color: lighten($blue,3%); color: lighten($blue,3%);}
+      &:active {border-color: lighten($blue,5%); color: lighten($blue,5%);}
+    }
+    &.red {
+      border-color: $red;
+      color: $red;
+      &:hover,&:disabled {border-color: lighten($red,3%); color: lighten($red,3%);}
+      &:active {border-color: lighten($red,5%); color: lighten($red,5%);}
+    }
+    &.orange {
+      border-color: $orange;
+      color: $orange;
+      &:hover,&:disabled {border-color: lighten($orange,3%); color: lighten($orange,3%);}
+      &:active {border-color: lighten($orange,5%); color: lighten($orange,5%);}
+    }
+  }
+}
+
+a.button {
+  text-decoration: none;
+}
