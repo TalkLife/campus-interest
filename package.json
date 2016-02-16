@@ -4,7 +4,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node ./server",
     "build": "webpack --progress --colors",
     "watch": "webpack --progress --colors --watch",
     "deploy": "NODE_ENV=production webpack -p --progress --colors --config webpack.production.config.js",
