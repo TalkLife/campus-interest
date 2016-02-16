@@ -11,7 +11,6 @@ module.exports = React.createClass({
         return {
             campusName: "",
             country: "",
-            students: "",
             website: "",
             yourName: "",
             yourPosition: "",
@@ -52,7 +51,6 @@ module.exports = React.createClass({
         Api("POST","https://plexus.talklife.co/api/campusInterest",{
             campusName: this.state.campusName,
             country: this.state.country,
-            students: this.state.students,
             website: this.state.website,
             yourName: this.state.yourName,
             yourPosition: this.state.yourPosition,
@@ -78,7 +76,6 @@ module.exports = React.createClass({
                 <form onSubmit={this.submit}>
                     <input type="text" placeholder="Campus Name" value={this.state.campusName} onChange={this.onChange.bind(null,"campusName")} />
                     <input type="text" placeholder="Country" value={this.state.country} onChange={this.onChange.bind(null,"country")} />
-                    <input type="text" placeholder="Number of Students" value={this.state.students} onChange={this.onChange.bind(null,"students")} />
                     <input type="text" placeholder="University Website URL" value={this.state.website} onChange={this.onChange.bind(null,"website")} />
                     <input type="text" placeholder="Your Name" value={this.state.yourName} onChange={this.onChange.bind(null,"yourName")} />
                     <input type="text" placeholder="Your Position" value={this.state.yourPosition} onChange={this.onChange.bind(null,"yourPosition")} />
@@ -98,7 +95,7 @@ module.exports = React.createClass({
             <div className="Home">
                 <div className="main" style={{"backgroundImage":"url(res/backgrounds/cover.jpg)"}}>
                     <div className="content">
-                        <img src="res/img/logo.png" className="logo" />
+                        <img src="res/img/logo.jpg" className="logo" />
                         <h1>Campus</h1>
                     </div>
                 </div>

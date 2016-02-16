@@ -34,7 +34,7 @@
   justify-content: center;
   .content {
     width: 80%;
-    max-width: 500px;
+    max-width: 400px;
     text-align: center;
     h2 {
       font-size: 2em;
@@ -42,12 +42,12 @@
       margin-bottom: 0;
     }
     p {
-      font-size: 1.2em;
-      margin-top: 0.5em;
+      font-size: 1em;
+      margin-top: 1.5em;
     }
     h3 {
       font-size: 1.1em;
-      margin-top: 1.8em;
+      margin-top: 1.5em;
       &.success {
         font-size: 1.1em;
       }

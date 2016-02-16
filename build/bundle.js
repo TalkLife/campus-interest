@@ -1206,7 +1206,6 @@ webpackJsonp([1],{
 	        return {
 	            campusName: "",
 	            country: "",
-	            students: "",
 	            website: "",
 	            yourName: "",
 	            yourPosition: "",
@@ -1243,7 +1242,6 @@ webpackJsonp([1],{
 	        Api("POST", "https://plexus.talklife.co/api/campusInterest", {
 	            campusName: this.state.campusName,
 	            country: this.state.country,
-	            students: this.state.students,
 	            website: this.state.website,
 	            yourName: this.state.yourName,
 	            yourPosition: this.state.yourPosition,
@@ -1280,7 +1278,6 @@ webpackJsonp([1],{
 	                { onSubmit: this.submit },
 	                React.createElement('input', { type: 'text', placeholder: 'Campus Name', value: this.state.campusName, onChange: this.onChange.bind(null, "campusName") }),
 	                React.createElement('input', { type: 'text', placeholder: 'Country', value: this.state.country, onChange: this.onChange.bind(null, "country") }),
-	                React.createElement('input', { type: 'text', placeholder: 'Number of Students', value: this.state.students, onChange: this.onChange.bind(null, "students") }),
 	                React.createElement('input', { type: 'text', placeholder: 'University Website URL', value: this.state.website, onChange: this.onChange.bind(null, "website") }),
 	                React.createElement('input', { type: 'text', placeholder: 'Your Name', value: this.state.yourName, onChange: this.onChange.bind(null, "yourName") }),
 	                React.createElement('input', { type: 'text', placeholder: 'Your Position', value: this.state.yourPosition, onChange: this.onChange.bind(null, "yourPosition") }),
@@ -1306,7 +1303,7 @@ webpackJsonp([1],{
 	                React.createElement(
 	                    'div',
 	                    { className: 'content' },
-	                    React.createElement('img', { src: 'res/img/logo.png', className: 'logo' }),
+	                    React.createElement('img', { src: 'res/img/logo.jpg', className: 'logo' }),
 	                    React.createElement(
 	                        'h1',
 	                        null,
@@ -1414,7 +1411,7 @@ webpackJsonp([1],{
 
 
 	// module
-	exports.push([module.id, ".main {\n  height: 100vh;\n  width: 100%;\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n  -webkit-align-items: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n  -webkit-justify-content: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  background-size: cover;\n  background-position: center center; }\n  .main .content {\n    width: 95%;\n    max-width: 250px;\n    text-align: center; }\n    .main .content img {\n      width: 65%; }\n    .main .content h1 {\n      font-size: 1.9em;\n      margin-top: 0.2em;\n      font-weight: 800; }\n\n.lower {\n  min-height: 100vh;\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n  -webkit-align-items: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n  -webkit-justify-content: center;\n      -ms-flex-pack: center;\n          justify-content: center; }\n  .lower .content {\n    width: 80%;\n    max-width: 500px;\n    text-align: center; }\n    .lower .content h2 {\n      font-size: 2em;\n      font-weight: 500;\n      margin-bottom: 0; }\n    .lower .content p {\n      font-size: 1.2em;\n      margin-top: 0.5em; }\n    .lower .content h3 {\n      font-size: 1.1em;\n      margin-top: 1.8em; }\n      .lower .content h3.success {\n        font-size: 1.1em; }\n    .lower .content form {\n      max-width: 400px;\n      margin: 0 auto;\n      font-size: 1.2em; }\n    .lower .content input[type=\"text\"], .lower .content textarea {\n      width: 100%;\n      margin-bottom: 1em;\n      background: transparent;\n      color: #ffffff; }\n    .lower .content textarea {\n      min-height: 5em;\n      margin-top: 15px; }\n    .lower .content [type=\"submit\"] {\n      font-size: 1.2em;\n      width: 100%;\n      font-weight: 300;\n      padding: 0.4em 0.5em; }\n    .lower .content .error {\n      padding-bottom: 1em;\n      color: #FF4747;\n      font-weight: 300; }\n", ""]);
+	exports.push([module.id, ".main {\n  height: 100vh;\n  width: 100%;\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n  -webkit-align-items: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n  -webkit-justify-content: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  background-size: cover;\n  background-position: center center; }\n  .main .content {\n    width: 95%;\n    max-width: 250px;\n    text-align: center; }\n    .main .content img {\n      width: 65%; }\n    .main .content h1 {\n      font-size: 1.9em;\n      margin-top: 0.2em;\n      font-weight: 800; }\n\n.lower {\n  min-height: 100vh;\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n  -webkit-align-items: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n  -webkit-justify-content: center;\n      -ms-flex-pack: center;\n          justify-content: center; }\n  .lower .content {\n    width: 80%;\n    max-width: 400px;\n    text-align: center; }\n    .lower .content h2 {\n      font-size: 2em;\n      font-weight: 500;\n      margin-bottom: 0; }\n    .lower .content p {\n      font-size: 1em;\n      margin-top: 1.5em; }\n    .lower .content h3 {\n      font-size: 1.1em;\n      margin-top: 1.5em; }\n      .lower .content h3.success {\n        font-size: 1.1em; }\n    .lower .content form {\n      max-width: 400px;\n      margin: 0 auto;\n      font-size: 1.2em; }\n    .lower .content input[type=\"text\"], .lower .content textarea {\n      width: 100%;\n      margin-bottom: 1em;\n      background: transparent;\n      color: #ffffff; }\n    .lower .content textarea {\n      min-height: 5em;\n      margin-top: 15px; }\n    .lower .content [type=\"submit\"] {\n      font-size: 1.2em;\n      width: 100%;\n      font-weight: 300;\n      padding: 0.4em 0.5em; }\n    .lower .content .error {\n      padding-bottom: 1em;\n      color: #FF4747;\n      font-weight: 300; }\n", ""]);
 
 	// exports
 
