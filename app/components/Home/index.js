@@ -102,7 +102,8 @@ module.exports = React.createClass({
                 <div className="lower">
                     <div className="content">
                         <h2>Campus is Coming</h2>
-                        <p>TalkLife Campus is built for students. Chat with peers in a safe encouraging environment. Access all of your campus student mental health services in one place.</p>
+                        <p>TalkLife is already one of the world’s leading peer to peer support networks with hundreds of thousands of users from all around the world. It’s a safe, moderated community which values encouragement and acceptance.</p>
+                        <p>We are excited to announce that TalkLife Campus is coming. It is built for students, where they can chat with other students in a safe and encouraging environment. They will also be able to access all of your campus student mental health services in one place.</p>
                         {form}
                     </div>
                 </div>
